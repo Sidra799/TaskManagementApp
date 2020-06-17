@@ -1,0 +1,150 @@
+.tickerv-wrap {
+  margin-left: 0px;
+  color: white;
+  box-sizing: content-box;
+  height: 25px; /* Take note of this */
+  overflow: hidden; /* Hide scrollbars */
+  padding: 10px;
+} 
+
+/* TICKER ANIMATION */
+@keyframes tickerv {
+  0%   {margin-top: 0;}
+  /* Quite literally -ve height of wrapper */
+  25%  {margin-top: -26px;} /* 1 X 25 px */
+  50%  {margin-top: -52px;} /* 2 X 25 px */
+  75%  {margin-top: -78px;} /* 3 X 25 px */
+  100% {margin-top: 0;} /* Back to first line */
+}
+.tickerv-wrap ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  animation-name: tickerv; /* Loop through items */
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1, 0, .5, 0);
+}
+.tickerv-wrap ul:hover {
+  /* Pause on mouse hover */
+  animation-play-state: paused;
+}
+
+/* ITEMS */
+.tickerv-wrap ul li {
+  font-size: 18px;
+  line-height: 26px /* Same as wrapper height */
+}
+
+  .record{
+    width: 50%;
+     margin-left: auto;
+
+    margin-right: auto;
+
+
+  }
+   #addBtn{
+    margin-top: 50px;
+   border: 2px solid black;
+  background-color: white;
+  color: darkslategrey;
+  padding: 14px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left:62.3%;
+  margin-bottom:10px;
+  border-color: darkslategrey;
+  border-radius: 4px;
+  
+ 
+ }
+  
+    *{
+        
+        padding: 0;
+        margin:0;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        grid-template-rows: 50px 1fr 50px;
+        grid-template-areas:
+        "sidenav main"
+        "sidenav main"
+        "sidenav main"
+        "sidenav main";
+        height: 100vh;
+    }
+   
+    
+    .sidenav {
+        grid-area: sidenav;
+        background-color: #394263;
+        position: fixed;
+        /* height: 100%; */
+    }
+    
+    .main {
+        
+        grid-area: main;
+        display: grid;
+    }
+  .main * { 
+  position: relative;
+  }
+
+ .main *:after { 
+ position: absolute;
+ top: 0;
+ left: 0;
+ } 
+
+ 
+
+
+  .sidenav {
+   
+    grid-area: sidenav;
+    background-color: #394263;
+    height: 100vh;
+    width: 15.8%;
+  }
+  .sidenav>div{
+    height: 13%;
+    
+  }
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+ }
+
+ .title {
+  color: whitesmoke;
+  font-size: 15px;
+ }
+ p,h1{
+  color: whitesmoke;
+
+ }
+ 
+
+  .sidenav__list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+  }
+
+  .sidenav__list-item {
+    padding: 20px 20px 20px 40px;
+    color: #ddd;
+  }
+
+  .sidenav__list-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  
+/* </style> */

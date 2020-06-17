@@ -1,0 +1,133 @@
+
+.modal-dialog{
+    overflow-y: initial !important;
+    }
+ .modal-body{
+    height: 350px;
+    overflow-y: auto;
+ }
+  
+    *{
+        
+        padding: 0;
+        margin:0;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+        "sidenav main"
+        "sidenav main"
+        "sidenav main"
+        "sidenav main";
+        height: 100vh;
+    }
+   
+    
+    .sidenav {
+        grid-area: sidenav;
+        background-color: #394263;
+      }
+    
+    .main {
+        
+        grid-area: main;
+        display: grid;
+    }
+  .main * { 
+  position: relative;
+  }
+
+ .main *:after { 
+ position: absolute;
+ top: 0;
+ left: 0;
+ } 
+
+ 
+ .filter{
+   text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    width:100%;
+ }
+ .filter>div {
+    width: 250px;
+    height: 100px;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    
+ }
+ div>input[type=text], div>input[type=date], div>select{
+    width:80%;
+ }
+ span {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+ }
+
+ #addBtn, #filterBtn{
+   border: 2px solid black;
+  background-color: white;
+  color: darkslategrey;
+  padding: 14px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right:10px;
+  margin-bottom:10px;
+  border-color: darkslategrey;
+  border-radius: 4px;
+  /* float: right; */
+ 
+ }
+
+
+  .sidenav {
+
+   
+    grid-area: sidenav;
+    background-color: #394263;
+    position: fixed;
+  }
+  .sidenav>div{
+    height: 13%;
+    
+  }
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+ }
+
+ .title {
+  color: whitesmoke;
+  font-size: 15px;
+ }
+ p,h1{
+  color: whitesmoke;
+
+ }
+ 
+
+  .sidenav__list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+  }
+
+  .sidenav__list-item {
+    padding: 20px 20px 20px 40px;
+    color: #ddd;
+  }
+
+  .sidenav__list-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  

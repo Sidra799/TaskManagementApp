@@ -1,0 +1,447 @@
+/* <style> */
+    *{
+        padding: 0;
+        margin:0;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        grid-template-rows: 50px 1fr 50px;
+        grid-template-areas:
+        "sidenav main"
+        "sidenav main"
+        "sidenav main";
+        height: 100vh;
+        width: 100%;
+    }
+    .header {
+        grid-area: header;
+        background-color: #648ca6;
+    }
+    
+    .sidenav {
+        grid-area: sidenav;
+        background-color: #394263;
+        position: fixed;
+        height: 100vh;
+    }
+    
+    .main {
+        
+        grid-area: main;
+        /* background-color: #8fd4d9; */
+        display: grid;
+        grid-template-columns: 1fr 240px;
+        grid-template-rows: 1fr 2fr ;
+        grid-template-areas:
+        "commentsContainer innerSidebar"
+        "commentsContainer innerSidebar";
+        height: 100%;
+
+    }
+    .commentsContainer{
+        grid-area: commentsContainer;
+        margin-top: 10px;
+        width:890px;
+        /* background-color: #e3e4e6; */
+    }
+    .innerSidebar{
+        grid-area: innerSidebar;
+        /* background-color: #8fd4d9; */
+    }
+    .someotherContainer{
+        grid-area: someotherContainer;
+        /* background-color: #d3d3; */
+    }
+    
+    .footer {
+        grid-area: footer;
+        background-color: #648ca6;
+    }
+    .header, .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background-color: #648ca6;
+  }
+  .sidenav {
+    display: flex; /* Will be hidden on mobile */
+    flex-direction: column;
+    grid-area: sidenav;
+    background-color: #394263;
+  }
+  .sidenav>div{
+    height: 13%;
+    /* background-color: white; */
+  }
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+ }
+
+ .title {
+  color: whitesmoke;
+  font-size: 15px;
+ }
+ /* p{
+  color: whitesmoke;
+  
+ }
+ h1{
+  color: whitesmoke;
+
+  
+ } */
+
+
+  .sidenav__list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+  }
+
+  .sidenav__list-item {
+    padding: 20px 20px 20px 40px;
+    color: #ddd;
+  }
+
+  .sidenav__list-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  .formContainer{
+    width: 60%;
+  }
+
+
+  .queryContainer{
+      width: 100%;
+      /* margin: 200px auto; */
+      background: #A0A0A0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      
+    }
+  .queryContainer textarea{
+      background: transparent;
+      border: 0;
+      font-size: 20px;
+      width: 100%;
+      color: black;
+    }
+
+  .suggestion{
+        border-top: 2px solid #999;
+   }
+  .suggestion > div {
+        padding: 1px;
+        font-size: 15px;
+        color:#fff;
+        border-top: 1px solid #666;
+        cursor: pointer;
+    }
+  .suggestion > div:hover{
+        background-color: #1e4dd4;
+    }
+
+  
+  .askBtn{ 
+    border: 2px solid black;
+  background-color: white;
+  color: darkslategrey;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: darkslategrey;
+  border-radius: 4px;
+  float: right;
+  padding: 12px 20px;
+  }
+
+ .select-css {
+	display: block;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 700;
+	color: #444;
+	line-height: 1.3;
+	padding: .6em 1.4em .5em .8em;
+	width: 90%;
+	max-width: 90%;
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #aaa;
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: .5em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+	background-repeat: no-repeat, repeat;
+	background-position: right .7em top 50%, 0 0;
+	background-size: .65em auto, 100%;
+ }
+ .select-css::-ms-expand {
+	display: none;
+ }
+ .select-css:hover {
+	border-color: #888;
+ }
+ .select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+ }
+ .select-css option {
+	font-weight:normal;
+ }
+ 
+ .comment-section{
+    list-style: none;
+    max-width: 800px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 10px;
+ }
+
+ .comment{
+    display: flex;
+    border-radius: 3px;
+    margin-bottom: 45px;
+    flex-wrap: wrap;
+ }
+
+ .comment.user-comment{
+    color:  #808080;
+ }
+
+ .comment.author-comment{
+    color:  #60686d;
+    justify-content: flex-end;
+ }
+
+ /* User and time info */
+
+ .comment .info{
+    width: 17%;
+ }
+
+ .comment.user-comment .info{
+    text-align: right;
+ }
+
+ .comment.author-comment .info{
+    order: 3;
+ }
+
+ 
+ .comment .info a{	/* User name */
+    display: block;
+    text-decoration: none;
+    color: #656c71;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0 3px 0;
+ }
+
+ .comment .info span{	/* Time */
+    font-size: 11px;
+    color:  #9ca7af;
+ }
+
+
+ /* The user avatar */
+
+ .comment .avatar{
+    width: 8%;
+ }
+
+ .comment.user-comment .avatar{
+    padding: 10px 18px 0 3px;
+ }
+
+ .comment.author-comment .avatar{
+    order: 2;
+    padding: 10px 3px 0 18px;
+ }
+
+ .comment .avatar img{
+    display: block;
+    border-radius: 50%;
+ }
+
+ .comment.user-comment .avatar img{
+    float: right;
+ }
+
+
+
+
+
+ /* The comment text */
+
+ .comment p{
+    line-height: 1.5;
+    padding: 18px 22px;
+    width: 50%;
+    position: relative;
+    word-wrap: break-word;
+ }
+
+ .comment.user-comment p{
+    background-color:  #f3f3f3;
+ }
+
+ .comment.author-comment p{
+    background-color:  #e2f8ff;
+    order: 1;
+ }
+
+ .user-comment p:after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #f3f3f3;
+    left: -8px;
+    top: 18px;
+ }
+
+ .author-comment p:after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #e2f8ff;
+    right: -8px;
+    top: 18px;
+ }
+
+
+
+
+ /* Comment form */
+
+ .write-new{
+    margin: 80px auto 0;
+    width: 50%;
+ }
+
+ .write-new textarea{
+    color:  #444;
+    font: inherit;
+
+    outline: 0;
+    border-radius: 3px;
+    border: 1px solid #cecece;
+    background-color:  #fefefe;
+    box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.06);
+    overflow: auto;
+
+    width:100%;
+    min-height: 80px;
+    padding: 15px 20px;
+ }
+
+ .write-new img{
+    border-radius: 50%;
+    margin-top: 15px;
+ }
+
+  .write-new button{
+    float:right;
+    background-color:  #87bae1;
+    box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    border: 0;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+
+    padding: 10px 25px;
+    margin-top: 18px;
+ }
+
+
+
+ /* Responsive styles */
+
+ @media (max-width: 800px){
+    /* Make the paragraph in the comments take up the whole width,
+    forcing the avatar and user info to wrap to the next line*/
+    .comment p{
+        width: 100%;
+    }
+
+    /* Reverse the order of elements in the user comments,
+    so that the avatar and info appear after the text. */
+    .comment.user-comment .info{
+        order: 3;
+        text-align: left;
+    }
+
+    .comment.user-comment .avatar{
+        order: 2;
+    }
+
+    .comment.user-comment p{
+        order: 1;
+    }
+
+
+    /* Align toward the beginning of the container (to the left)
+    all the elements inside the author comments. */
+    .comment.author-comment{
+        justify-content: flex-start;
+    }
+
+
+    .comment-section{
+        margin-top: 10px;
+    }
+
+    .comment .info{
+        width: auto;
+    }
+
+    .comment .info a{
+        padding-top: 15px;
+    }
+
+    .comment.user-comment .avatar,
+    .comment.author-comment .avatar{
+        padding: 15px 10px 0 18px;
+        width: auto;
+    }
+
+    .comment.user-comment p:after,
+    .comment.author-comment p:after{
+        width: 12px;
+        height: 12px;
+        top: initial;
+        left: 28px;
+        bottom: -6px;
+    }
+
+    .write-new{
+        width: 100%;
+    }
+ }
+
+
+
+
+/* </style> */
